@@ -18,6 +18,8 @@ ff_prefix="fdef:17a0:ffb1:300::"
 #Set to 1 for this script to run. :-)
 run=0
 
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin
+
 #####################################
 
 #abort script on first error
@@ -244,6 +246,7 @@ fi
 if ! is_running "fastd"; then
   echo "(I) Start fastd."
   fastd --config /etc/fastd/fastd.conf --daemon
+  sleep 1
 fi
 
 echo "(I) Add fastd interface to batman-adv."
@@ -265,5 +268,5 @@ ip -6 addr add $addr/64 dev bat0
 
 if ! is_running "alfred"; then
   echo "(I) Start alfred."
-  alfred -i bat0 -b bat0 -m &> /dev/null &
+  start-stop-daemon --start --background --exec `which alfred` -- -i bat0 -m
 fi
