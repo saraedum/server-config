@@ -23,7 +23,7 @@ Es werden folgende wesentlichen Programme installiert und konfiguriert:
 Zu Ausführen einfach als Benutzer 'root' die Scripte ausführen:
 
 <pre>
-git clone https://github.com/freifunk-bielefeld/server-config.git
+git clone https://github.com/ffulm/server-config.git
 cd server-config
 ./setup_server.sh
 </pre>
