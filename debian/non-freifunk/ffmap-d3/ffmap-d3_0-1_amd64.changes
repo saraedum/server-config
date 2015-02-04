@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Wed, 04 Feb 2015 18:01:43 +0000
+Source: ffmap-d3
+Binary: ffmap-d3
+Architecture: source all
+Version: 0-1
+Distribution: unstable
+Urgency: low
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Changed-By: Julian Rueth <julian.rueth@fsfe.org>
+Description: 
+ ffmap-d3   - <insert up to 60 chars description>
+Changes: 
+ ffmap-d3 (0-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1: 
+ 7662e7c2cb35d542c0235b4b62428e4dd99ff29d 801 ffmap-d3_0-1.dsc
+ 7d0b8e7f051235e60d85a9daedf098447341ab75 85310 ffmap-d3_0.orig.tar.bz2
+ 1691d96f3e5b64caa84f2217e7aa259cb1811acb 2379 ffmap-d3_0-1.debian.tar.gz
+ ad874ce7e18c3f8269d1fc2f891213c15b1a9e0e 2412 ffmap-d3_0-1_all.deb
+Checksums-Sha256: 
+ a10d8512c1b47b93c10bf7607852d846bb3a2d6a2494f066b990693d14dccb8e 801 ffmap-d3_0-1.dsc
+ a9ea0f38ae0b39ee63d9decf8bc09d68acb02cbef9eb9909af6b65d497978dc4 85310 ffmap-d3_0.orig.tar.bz2
+ 4d22ab48c1ad38d189fa5c3e159a659b6e6d6d876648042aaa8208d4c9c0eb3f 2379 ffmap-d3_0-1.debian.tar.gz
+ ffffde05ee05de55c1cea4a35b678349e36926e256a6da9c60a8836f121f2801 2412 ffmap-d3_0-1_all.deb
+Files: 
+ 048f4f362fd9eaacd9f70208c9dad11f 801 unknown extra ffmap-d3_0-1.dsc
+ 966b759d40b7626e584547aaacdfeda8 85310 unknown extra ffmap-d3_0.orig.tar.bz2
+ 4f177cf7efbd3c19c1d29e3b21a9c60d 2379 unknown extra ffmap-d3_0-1.debian.tar.gz
+ 0d836bb593d317eafc0b5f90fbcaa128 2412 unknown extra ffmap-d3_0-1_all.deb

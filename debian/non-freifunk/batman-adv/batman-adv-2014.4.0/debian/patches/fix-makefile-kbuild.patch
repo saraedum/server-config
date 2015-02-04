@@ -1,0 +1,19 @@
+Include the configuration variables from the Makefile (which usually sources
+Makefile.kbuild) into Makefile.kbuild.
+--- a/Makefile.kbuild
++++ b/Makefile.kbuild
+@@ -16,6 +16,14 @@
+ # along with this program; if not, see <http://www.gnu.org/licenses/>.
+ #
+ 
++# variables as defined in Makefile
++CONFIG_BATMAN_ADV_DEBUG=n
++CONFIG_BATMAN_ADV_BLA=y
++CONFIG_BATMAN_ADV_DAT=y
++CONFIG_BATMAN_ADV_NC=n
++CONFIG_BATMAN_ADV_MCAST=y
++CONFIG_BATMAN_ADV=m
++
+ obj-$(CONFIG_BATMAN_ADV) += batman-adv.o
+ batman-adv-y += bat_iv_ogm.o
+ batman-adv-y += bitarray.o

@@ -1,0 +1,9 @@
+Package: freifunk-www-counter
+Version: 1
+Architecture: all
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Installed-Size: 28
+Depends: httpd, freifunk-map
+Section: freifunk
+Priority: extra
+Description: Freifunk counter page

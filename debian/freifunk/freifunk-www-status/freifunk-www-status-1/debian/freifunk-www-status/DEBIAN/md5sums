@@ -1,0 +1,6 @@
+40627a42c87aab793b6cfa782e080502  usr/share/doc/freifunk-www-status/changelog.gz
+669353755b87549cda3b27f7fa38bfba  usr/share/doc/freifunk-www-status/copyright
+6c57a498305ef3aa4609d1a7ccc86191  usr/share/freifunk-www-status/status_page_create.sh
+d41d8cd98f00b204e9800998ecf8427e  var/www/index.html
+804a11254b314515abf241a8984f860c  var/www/status/status_page_background.png
+ce3d6ef9960a3bf01dbd505f4905f485  var/www/status/status_page_style.css

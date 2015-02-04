@@ -1,0 +1,14 @@
+batctl (2013.4.0-2) unstable; urgency=low
+
+  batctl 2013.5.0 will have the vis commands (vis_mode and vis_data) removed.
+  The functionality is not available anymore in the Linux kernel starting with
+  v3.13. Instead the batadv-vis daemon should be used together with the alfred
+  daemon to replace them. They run in userspace, only need access to the
+  batman-adv originators table in debugfs and can already be used.
+
+  The vis_data command will print a warning on stderr when it is used in batctl
+  2013.4.0. This is done to inform users early about the upcoming removal. The
+  normal output on stdout is not modified. Consumers may have to be modified to
+  only read from stdout and ignore stderr.
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 16 Nov 2013 19:01:22 +0100

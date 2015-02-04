@@ -1,0 +1,638 @@
+batctl (2014.4.0-1.1) experimental; urgency=low
+
+  * Backport to debian/wheezy
+
+ -- Julian Rueth <julian.rueth@fsfe.org>  Mon, 02 Feb 2015 15:58:39 +0000
+
+batctl (2014.4.0-1) experimental; urgency=medium
+
+  * New Upstream Version
+  * Upgraded to policy 3.9.6, no changes required
+  * Update years in debian/copyright
+  * debian/patches:
+    - Remove upstream merged manpage-hyphen-used-as-minus-sign.patch
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 06 Jan 2015 09:21:18 +0100
+
+batctl (2014.3.0-2) unstable; urgency=medium
+
+  * Upload to unstable for Linux 3.16 (planned Jessie kernel)
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 30 Aug 2014 19:28:22 +0200
+
+batctl (2014.3.0-1) experimental; urgency=medium
+
+  * New Upstream Version
+  * debian/patches
+    - Add manpage-hyphen-used-as-minus-sign.patchm Fix hyphen used as minus
+      sign in manpage
+  * debian/rules:
+    - Use Largefile Support enabled C API
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 22 Jul 2014 23:52:52 +0200
+
+batctl (2014.2.0-1) experimental; urgency=medium
+
+  * New Upstream Version
+  * debian/patches:
+    - Remove upstream merged patch ip_header_parsing.patch
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 18 May 2014 19:23:45 +0200
+
+batctl (2014.1.0-2) unstable; urgency=medium
+
+  * Upload to unstable for Linux 3.14
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 18 May 2014 19:13:05 +0200
+
+batctl (2014.1.0-1) experimental; urgency=medium
+
+  * New Upstream Version
+  * debian/patches:
+    - Remove upstream merged patches ip_resolver_libnl.patch,
+      rtnl_open_clash.patch and vlan_info_libnl.patch
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 13 Mar 2014 22:04:21 +0100
+
+batctl (2014.0.0-3) unstable; urgency=medium
+
+  * debian/patches:
+    - Add ip_header_parsing.patch, tcpdump - fix IP header parsing
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 05 Apr 2014 16:10:29 +0200
+
+batctl (2014.0.0-2) unstable; urgency=medium
+
+  * Upload to unstable for Linux 3.13
+  * Update years in debian/copyright
+  * Move keyring for signature verification to new debian/upstream/
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 23 Feb 2014 07:05:04 +0100
+
+batctl (2014.0.0-1) experimental; urgency=medium
+
+  * New Upstream Version
+  * Update copyright years in debian/copyright
+  * debian/patches:
+    - Remove upstream merged cflags_linker.patch, const_assignment.patch,
+      email_addresses.patch, gnu_source.patch, include_guards.patch,
+      includes.patch, ip_resolver_cleanup.patch, ip_resolver_ipv6.patch,
+      ip_resolver_libnl.patch, legacy_types.patch, make_header_depends.patch,
+      static_functions.patch, strncat_bufferoverflow.patch,
+      vis_removal_warning.patch
+    - Rebase ip_resolver_libnl.patch on top of 2014.0.0
+    - Add rtnl_open_clash.patch, Avoid name clash "rtnl_open" with libnl
+    - Add vlan_info_libnl.patch, Use libnl to implement vlan parent device
+      resolver
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 06 Jan 2014 20:08:10 +0100
+
+batctl (2013.4.0-2) unstable; urgency=low
+
+  * Upgraded to policy 3.9.5, no changes required
+  * Add NEWS entry about upcoming vis_data+vis_mode command removal
+  * debian/patches:
+    - Add vis_removal_warning.patch, Warn about upcoming removal of vis
+      functionality
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 16 Nov 2013 19:27:46 +0100
+
+batctl (2013.4.0-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Update e-mail address of Simon Wunderlich
+  * debian/copyright:
+    - Update e-mail address of Marek Lindner
+  * debian/patches:
+    - Add email_addresses.patch, Update author addresses
+    - Remove upstream merged nobatman_memleak.patch, bisect_iv_neigh_add.patch,
+      hyphen_man.patch
+    - Add ip_resolver_cleanup.patch, Reduce IPv4 focus of mac resolve functions
+    - Add ip_resolver_rtnl.patch, Replace /proc/net/arp based resolver with rtnl
+    - Add ip_resolver_ipv6.patch, Add support for IPv6 to address resolver
+    - Add ip_resolver_libnl.patch, Use libnl to implement mac resolver
+  * debian/control:
+    - Add libnl-3-dev and pkg-config as Build-Depends for mac resolve functions
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 15 Oct 2013 20:00:20 +0200
+
+batctl (2013.3.0-2) unstable; urgency=low
+
+  * debian/patches:
+    - Add strncat_bufferoverflow.patch, Fix possible buffer overflow when using
+      strncat
+    - Add gnu_source.patch, Fix inconsistent use of _GNU_SOURCE
+    - Add const_assignment.patch, Avoid assigning const buffer to non-const
+      pointer
+    - Add static_functions.patch, Mark all local functions as static
+    - Add include_guards.patch, Add include guards to avoid redundant
+      declarations or include loops
+    - Add legacy_types.patch, Remove legacy types u64 and caddr_t
+    - Add includes.patch, Add missing includes and remove unused includes
+    - Add cflags_linker.patch, Add CFLAGS to the linker step
+    - Remove lto.patch, Replaced by cflags_linker.patch
+    - Add nobatman_memleak.patch, Fix error handling jump in interface when
+      batadv is not loaded
+    - Add bisect_iv_neigh_add.patch, Fix type of new neighbor buffer in
+      _seqno_trace_neigh_add
+    - Add make_header_depends.patch, Don't fail rebuild when header is removed
+    - Add hyphen_man.patch, Don't use hyphen for parameter in manpage
+  * debian/rules:
+    - Remove unused make option LTO=1
+    - Add -flto to DEB_CFLAGS_MAINT_APPEND to replace lto.patch
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 10 Sep 2013 22:21:47 +0200
+
+batctl (2013.3.0-1) unstable; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Wed, 24 Jul 2013 15:20:44 +0200
+
+batctl (2013.2.0-2) unstable; urgency=low
+
+  * Upload to unstable for Linux 3.10
+  * debian/rules:
+    - Enable link-time optimization
+    - Enable garbage collection of sections
+  * debian/patches:
+    - Add lto.patch, Enable Link-time optimization for smaller binaries
+  * debian/watch:
+    - Verify new upstream versions using GPG key 96E5AF383F7C593B6B16
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 16 Jul 2013 12:13:16 +0200
+
+batctl (2013.2.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Apr 2013 10:20:38 +0200
+
+batctl (2013.1.0-2) unstable; urgency=low
+
+  * Upload to unstable for Linux 3.8 and Linux 3.9
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 07 May 2013 07:56:00 +0200
+
+batctl (2013.1.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 04 Mar 2013 10:00:49 +0100
+
+batctl (2013.0.0-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Remove obsolete DM-Upload-Allowed in debian/control
+  * Update copyright years in debian/copyright
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 13 Jan 2013 01:43:29 +0100
+
+batctl (2012.4.0-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Upgraded to policy 3.9.4, no changes required
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 29 Oct 2012 17:21:23 +0100
+
+batctl (2012.3.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 19 Aug 2012 22:49:35 +0200
+
+batctl (2012.2.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Wed, 13 Jun 2012 01:11:15 +0200
+
+batctl (2012.1.0-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Upgraded to policy 3.9.3, no changes required
+  * Let debhelper set the buildflags implicitly
+  * Update copyright years in debian/copyright
+
+ -- Sven Eckelmann <sven@narfation.org>  Fri, 30 Mar 2012 18:55:13 +0200
+
+batctl (2012.0.0-2) unstable; urgency=low
+
+  * Enable all hardening flags in debian/rules (Closes: #662962)
+
+ -- Sven Eckelmann <sven@narfation.org>  Wed, 07 Mar 2012 18:05:08 +0100
+
+batctl (2012.0.0-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Upgrade debhelper compat to v9
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 05 Feb 2012 15:32:42 +0100
+
+batctl (2011.4.0-2) unstable; urgency=low
+
+  * Upload to unstable for Linux 3.2
+  * Update copyright years in debian/copyright
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 19 Jan 2012 10:39:27 +0100
+
+batctl (2011.4.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 14 Nov 2011 15:46:16 +0100
+
+batctl (2011.3.0-3) unstable; urgency=low
+
+  * Upload to unstable for Linux 3.1
+  * Remove hardening-includes which are now integrated in dpkg-
+    buildflags
+  * Use debian packaging manual URL as format identifier in
+    debian/copyright
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 24 Oct 2011 21:28:50 +0200
+
+batctl (2011.3.0-2) experimental; urgency=low
+
+  * Don't mix implicit and explicit rules to prevent FTBFS with make 3.82
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Aug 2011 17:40:30 +0200
+
+batctl (2011.3.0-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Override new PREFIX install variable with /usr in debian/rules
+  * Don't install manpage twice using debian/batctl.manpages
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Aug 2011 16:37:31 +0200
+
+batctl (2011.2.0-2) unstable; urgency=low
+
+  * Upload to unstable for Linux 3.0
+  * Mark all targets in debian/rules as phony
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 24 Jul 2011 15:01:57 +0200
+
+batctl (2011.2.0-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Update Vcs-* fields to new anonscm.debian.org URLs in debian/control
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 19 Jun 2011 21:51:26 +0200
+
+batctl (2011.1.0-2) unstable; urgency=low
+
+  * Upgraded to policy 3.9.2, no changes required
+  * debian/control:
+    - Remove Recommends of obsolete package batman-adv-dkms
+    - Remove Suggests of obsolete package batman-adv-source
+
+ -- Sven Eckelmann <sven@narfation.org>  Fri, 20 May 2011 14:52:07 +0200
+
+batctl (2011.1.0-1) unstable; urgency=low
+
+  * New Upstream Version
+  * debian/patches:
+    - Remove upstream merged patch decapsulate_monitor.patch
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 17 Apr 2011 19:48:52 +0200
+
+batctl (2011.0.0-2) unstable; urgency=low
+
+  * Upload to unstable
+  * debian/patches:
+    - Add decapsulate_monitor.patch, Remove extra headers of frames from monitor
+      devices
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 06 Feb 2011 11:23:57 +0100
+
+batctl (2011.0.0-1) experimental; urgency=low
+
+  * New Upstream Version
+  * Keep dependencies on separate lines in debian/control
+  * debian/copyright:
+    - Update to DEP5 revision 164
+    - Update copyright years
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 29 Jan 2011 22:58:29 +0100
+
+batctl (2010.2.0+83+g927399e-1) experimental; urgency=low
+
+  * New Upstream Snapshot from 927399e7d54686679f4205241bdc4107b7559a93
+  * Updated my maintainer e-mail address
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 11 Dec 2010 10:57:03 +0100
+
+batctl (2010.2.0+79+g8262d6d-1) experimental; urgency=low
+
+  * New Upstream Snapshot from 8262d6dbfb548524563efec6d5b155907d5367e4
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Nov 2010 22:38:47 +0100
+
+batctl (2010.2.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Nov 2010 22:34:56 +0100
+
+batctl (2010.1.0+9+g68875a5-1) experimental; urgency=low
+
+  * New Upstream Snapshot from 68875a5f3a8d9cf236c450ddd91c8baa56d8e657
+  * Upgrade debhelper compat to v8
+  * debian/rules:
+    - set *FLAGS using dpkg-buildflags in debian/rules to work like
+      dpkg-buildpackage when called directly
+    - Use hardening-includes for CFLAGS and LDFLAGS hardened builds
+    - Show build commands when compiling
+    - Save debian version as version string for batctl
+  * Change upstream domain to open-mesh.org
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 23 Sep 2010 13:04:24 +0200
+
+batctl (2010.1.0+6+g9bab711-1) experimental; urgency=low
+
+  * New Upstream Snapshot from 9bab711ac9412554196cfa93fcf146272ad0b14a
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 04 Sep 2010 15:57:32 +0200
+
+batctl (2010.1.0-1) experimental; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 04 Sep 2010 15:53:37 +0200
+
+batctl (2010.1.0~23+g40fe3f1-1) experimental; urgency=low
+
+  * New Upstream Snapshot from 40fe3f144d263a0b392a7f1fbb3055a8dd233fd2
+  * Upgraded to policy 3.9.1, no changes required
+  * Change get-orig-source.sh to support versions from next branch
+  * Don't recommend virtual package batman-adv-modules which isn't provided
+    anymore
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 02 Sep 2010 22:39:45 +0200
+
+batctl (2010.0.0+svn1682-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 19 Jun 2010 00:26:58 +0200
+
+batctl (2010.0.0-2) unstable; urgency=low
+
+  * Upgraded to policy 3.9.0, no changes required
+  * Only build on linux-any due to linux dependencies of batman-adv
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 29 Jun 2010 22:22:28 +0200
+
+batctl (2010.0.0-1) unstable; urgency=low
+
+  * New Upstream Version
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 19 Jun 2010 00:11:11 +0200
+
+batctl (0.3.0~alpha~svn1680-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+  * Update debian/copyright
+
+ -- Sven Eckelmann <sven@narfation.org>  Wed, 02 Jun 2010 12:07:20 +0200
+
+batctl (0.3.0~alpha~svn1625-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 29 Apr 2010 11:02:26 +0200
+
+batctl (0.3.0~alpha~svn1610-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 23 Mar 2010 00:56:05 +0100
+
+batctl (0.3.0~alpha~svn1575-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 01 Mar 2010 14:05:34 +0100
+
+batctl (0.2.1-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Updated debian/copyright
+  * debian/rules:
+    - Enable parallel builds using dh's --parallel
+    - Inform about missing installed files using dh's --list-missing
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 23 Mar 2010 00:35:51 +0100
+
+batctl (0.2-2) unstable; urgency=low
+
+  * Correct spelling errors found by lintian
+  * debian/copyright: Update copyright years
+  * Upgraded to policy 3.8.4, no changes required
+  * Remove outdated README.source
+  * Don't list removed transitional packages in README.Debian
+  * Call dh_auto_install with needed parameters in debian/rules
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 01 Mar 2010 13:53:07 +0100
+
+batctl (0.2-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Convert to 3.0 (quilt) source format
+  * Change current upstream maintainer to Marek Lindner
+  * debian/control:
+    - Remove shlibs:Depends for binary packages without shared libs dependencies
+    - Rewrote descriptions for batctl with new features
+    - Remove cdbs and change debhelper dependency to 7 for for dh support
+    - Remove batman-adv-battool transitional due to conflict with same package
+      in unstable
+  * Rewrote debian/rules with dh
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 08 Nov 2009 18:15:04 +0100
+
+batctl (0.2~beta~svn1445-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 20 Oct 2009 20:02:00 +0200
+
+batctl (0.2~beta~svn1431-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+  * Upgraded to policy 3.8.3, no changes required
+  * Add README.source with information about patch management
+  * Remove unused lintian overrides
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 13 Sep 2009 00:46:50 +0200
+
+batctl (0.2~beta~svn1366-1) experimental; urgency=low
+
+  * New Upstream Snapshot
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 06 Aug 2009 19:13:31 +0200
+
+batctl (0.2~beta~svn1318-1) experimental; urgency=low
+
+  * New Upstream Snapshot (Closes: #534179)
+  * Rename binary package batman-adv-kernelland to batctl
+  * debian/control:
+    - Rename source from battool to new new upstream name batctl
+    - Add new transitional package batman-adv-battool
+    - Depend on cdbs >= 0.4.52 for DEB_DH_GENCONTROL_ARGS_*
+  * Install bat-hosts.sample as example configuration
+  * Override lintian warning latest-debian-changelog-entry-without-new-version
+    due to changed binary and source name, but kept debian/changelog
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 23 Jun 2009 11:04:24 +0200
+
+battool (1:0.1~beta+svn1236-4) unstable; urgency=low
+
+  * Recommend either batman-adv-dkms or batman-adv-modules for
+    batman-adv-battool in debian/control
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 20 Oct 2009 19:56:16 +0200
+
+battool (1:0.1~beta+svn1236-3) unstable; urgency=low
+
+  * Upgraded to policy 3.8.3, no changes required
+  * Add README.source with information about patch management
+
+ -- Sven Eckelmann <sven@narfation.org>  Thu, 15 Oct 2009 18:50:03 +0200
+
+battool (1:0.1~beta+svn1236-2) unstable; urgency=low
+
+  * Reduce debhelper dependency to 5
+  * Convert debian/copyright to new dep5 version
+  * Upgraded to policy 3.8.2, no changes required
+  * Add get-orig-source target to retrieve source in debian/rules
+  * Add debian/get-orig-source.sh to get source from svn or via uscan
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 21 Jun 2009 18:54:11 +0200
+
+battool (1:0.1~beta+svn1236-1) unstable; urgency=low
+
+  * Update to upstream revision 1236
+  * Rewrote debian/rules using cdbs
+  * debian/control:
+    - Move Vcs-* to git.debian.org
+    - Add package batman-adv-battool-dbg with debug symbols
+    - Upgraded to policy 3.8.1, no changes required
+    - Allow Debian Maintainers to upload new versions of battool
+
+ -- Sven Eckelmann <sven@narfation.org>  Wed, 06 May 2009 13:08:36 +0200
+
+battool (1:0.1~beta+svn1193-1) unstable; urgency=low
+
+  * Update to upstream revision 1193
+  * Correct URL in watch file to match newer releases
+  * debian/rules: Use CFLAGS from dpkg-buildpackage
+  * debian/copyright: Update copyright years
+
+ -- Sven Eckelmann <sven@narfation.org>  Tue, 20 Jan 2009 00:17:50 +0100
+
+battool (1:0.1~beta+svn1158-2) unstable; urgency=low
+
+  * Correct description of battool in debian/README.Debian
+  * Recommend batman-adv-modules and suggest batman-adv-source
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 11 Jan 2009 14:08:08 +0100
+
+battool (1:0.1~beta+svn1158-1) unstable; urgency=low
+
+  * Split batman-adv source package in batman-adv-kernelland and battool
+    to match with upstream released tar.gz
+  * debian/rules:
+    - Use dh_clean to remove *-stamp files
+    - Use dh_installman to install manpages
+    - Replace dh_clean -k with dh_prep
+  * Change upstream url to http://www.open-mesh.net/
+
+ -- Sven Eckelmann <sven@narfation.org>  Fri, 02 Jan 2009 14:20:44 +0100
+
+batman-adv (0.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Install upstream changelog for batman-adv-source
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 28 Dec 2008 12:37:37 +0100
+
+batman-adv (0.1~beta+svn1154-1) unstable; urgency=low
+
+  * Support changed directory layout in upstream
+  * Correct name of battool package in debian/Readme.DEBIAN
+  * Fix installation of the renamed kernel module
+  * Replace batman-adv@packages.debian.org maintainer with first Uploader in
+    debian/control
+
+ -- Sven Eckelmann <sven@narfation.org>  Mon, 17 Nov 2008 11:28:35 +0100
+
+batman-adv (0.1~beta+svn1141-1) unstable; urgency=low
+
+  * Update to upstream revision 1141
+  * debian/copyright:
+    - Add Andreas Langer who has also copyright to battool/*
+    - Set copyright of debian/* to Simon Wunderlich and myself
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 26 Oct 2008 09:42:25 +0100
+
+batman-adv (0.1~beta+svn1105-3) unstable; urgency=low
+
+  * reuse orig.tar.gz from 0.1~beta+svn1105-1 release
+
+ -- Sven Eckelmann <sven@narfation.org>  Sun, 14 Sep 2008 14:24:34 +0200
+
+batman-adv (0.1~beta+svn1105-2) unstable; urgency=low
+
+  * remove useless dh_install* and dh_shlibdeps -i from rules
+  * move maintainer to uploaders field in control for multiple maintainers
+  * add debian watch file for uscan/dehs
+
+ -- Sven Eckelmann <sven@narfation.org>  Sat, 13 Sep 2008 01:19:11 +0200
+
+batman-adv (0.1~beta+svn1105-1) unstable; urgency=low
+
+  * update to upstream revision 1105 (various fixes)
+
+ -- Simon Wunderlich <sw@simonwunderlich.de>  Mon, 11 Aug 2008 14:04:34 +0200
+
+batman-adv (0.1~beta+svn1092-1) unstable; urgency=low
+
+  [ Sven Eckelmann ]
+  * clean up orig (some paths were only included for symlinked files)
+  * remove dpatch prebuild dependency 
+  * fix copyright issues
+  * clean up debian/rules, use dh_testroot
+  * fix package descriptions
+  * upstream fixes copyright notes
+
+ -- Simon Wunderlich <sw@simonwunderlich.de>  Mon, 07 Jul 2008 00:29:07 +0200
+
+batman-adv (0.1~beta+svn1091-1) unstable; urgency=low
+
+  [ Sven Eckelmann ]
+  * update to latest upstream svn revision (fixes some bugs)
+  * Use batman-adv as short name instead of batman-adv-source
+  * Push module standard version to 3.8.0
+  * DEB_BUILD_OPTIONS support for noopt
+  * Fix lintian warning latest-debian-changelog-entry-without-new-date 
+  * add git vcs to control file
+  * clean up source package
+
+  [ Simon Wunderlich ]
+  * remove predependency of dialog for battool
+
+ -- Simon Wunderlich <sw@simonwunderlich.de>  Sat, 05 Jul 2008 18:12:25 +0200
+
+batman-adv (0.1~beta+svn1082-2) unstable; urgency=low
+
+  * fix Description for batman-adv-battool
+
+ -- Simon Wunderlich <sw@simonwunderlich.de>  Sun, 22 Jun 2008 20:51:13 +0200
+
+batman-adv (0.1~beta+svn1082-1) unstable; urgency=low
+
+  * Initial release (Closes: #478729) 
+
+ -- Simon Wunderlich <sw@simonwunderlich.de>  Sun, 27 Apr 2008 21:02:23 +0200
+

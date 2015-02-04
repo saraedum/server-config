@@ -1,0 +1,23 @@
+Source: libuecc
+Priority: extra
+Maintainer: Matthias Schiffer <mschiffer@universe-factory.net>
+Build-Depends: debhelper (>= 9), cmake
+Standards-Version: 3.9.2
+Section: libs
+Homepage: https://projects.universe-factory.net/projects/fastd
+
+Package: libuecc0
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: very small Elliptic Curve Cryptography library
+ libuecc is a general-purpose ECC library which uses a curve similar to djb's
+ Curve25519 which is part of the NaCl library.
+
+Package: libuecc-dev
+Architecture: any
+Section: libdevel
+Depends: libuecc0 (= ${binary:Version}), ${misc:Depends}
+Description: development library and headers for libuecc
+ libuecc is a general-purpose ECC library which uses a curve similar to djb's
+ Curve25519 which is part of the NaCl library.

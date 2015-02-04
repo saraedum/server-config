@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+export DEB_CFLAGS_MAINT_APPEND = -fdata-sections -ffunction-sections -flto
+export DEB_CPPFLAGS_MAINT_APPEND = -D_FILE_OFFSET_BITS=64
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--gc-sections
+
+REVISION=$(shell dpkg-parsechangelog|grep '^Version: '|sed 's/^Version:\s*//')
+MAKEOPTIONS = V="1" REVISION="debian-$(REVISION)" PREFIX="/usr" CONFIG_BATCTL_BISECT=y
+DBG_PACKAGE=$(shell dpkg-parsechangelog|grep '^Source: '|sed 's/^Source:\s*//')-dbg
+
+binary binary-arch binary-indep build build-arch build-indep clean install install-arch install-indep:
+	dh $@ --parallel --list-missing
+
+get-orig-source:
+	$(CURDIR)/debian/get-orig-source.sh
+
+override_dh_auto_build:
+	dh_auto_build -- $(MAKEOPTIONS)
+
+override_dh_auto_install:
+	dh_auto_install -- $(MAKEOPTIONS)
+
+override_dh_strip:
+	dh_strip -a --dbg-package="$(DBG_PACKAGE)"
+
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean install install-arch install-indep \
+	get-orig-source override_dh_auto_build override_dh_auto_install override_dh_strip

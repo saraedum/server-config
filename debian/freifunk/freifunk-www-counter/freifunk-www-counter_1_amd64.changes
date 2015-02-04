@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 04 Feb 2015 16:45:44 +0000
+Source: freifunk-www-counter
+Binary: freifunk-www-counter
+Architecture: source all
+Version: 1
+Distribution: unstable
+Urgency: low
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Changed-By: Julian Rueth <julian.rueth@fsfe.org>
+Description: 
+ freifunk-www-counter - Freifunk counter page
+Changes: 
+ freifunk-www-counter (1) unstable; urgency=low
+ .
+   * Initial Release.
+Checksums-Sha1: 
+ e7cecf0ace38620bc46d694a7c33ae79d58db06a 565 freifunk-www-counter_1.dsc
+ 9a4b4b689b1e52af81e6278d76747c016f486e67 3717 freifunk-www-counter_1.tar.gz
+ ce72656fa800bd987a9931cd8d1553ffd89574d6 2812 freifunk-www-counter_1_all.deb
+Checksums-Sha256: 
+ 1230bfa6832dcf09974128291ed821f3dd8db4de24d6c33586f1a06d3c68e54e 565 freifunk-www-counter_1.dsc
+ c10228a9b7f372191793ef52e06f4be66f8b346b5fd47ba439f839bce778638b 3717 freifunk-www-counter_1.tar.gz
+ 90ac4bfd38a342cbb262cc3d5263073358482169495f0528abad6d9746652d40 2812 freifunk-www-counter_1_all.deb
+Files: 
+ 337d31aa3ad146cc6b285b87c595326d 565 freifunk extra freifunk-www-counter_1.dsc
+ 2975eda639077913fac87f07d05d5d44 3717 freifunk extra freifunk-www-counter_1.tar.gz
+ bda34e1dee0c5abf671c001e27ce0058 2812 freifunk extra freifunk-www-counter_1_all.deb

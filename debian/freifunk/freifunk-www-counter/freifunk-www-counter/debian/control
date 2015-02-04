@@ -1,0 +1,11 @@
+Source: freifunk-www-counter
+Section: freifunk
+Priority: extra
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: freifunk-www-counter
+Architecture: all
+Depends: ${misc:Depends}, httpd, freifunk-map, python3
+Description: Freifunk counter page

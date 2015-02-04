@@ -1,0 +1,9 @@
+Package: freifunk-www-status
+Version: 1
+Architecture: all
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Installed-Size: 91
+Depends: httpd
+Section: freifunk
+Priority: extra
+Description: Freifunk server status page

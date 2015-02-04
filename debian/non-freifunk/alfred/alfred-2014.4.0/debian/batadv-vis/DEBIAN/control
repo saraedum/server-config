@@ -1,0 +1,16 @@
+Package: batadv-vis
+Source: alfred
+Version: 2014.4.0-1
+Architecture: amd64
+Maintainer: Nils Schneider (nils@nilsschneider.net)
+Installed-Size: 78
+Depends: alfred (= 2014.4.0-1)
+Section: net
+Priority: extra
+Description: batadv-vis - visualize your batman-adv mesh network
+ batadv-vis can be used to visualize your batman-adv mesh network. It read
+ the neighbor information and local client table and distributes this information
+ via alfred in the network. By gathering this local information, any vis node can
+ get the whole picture of the network.
+ It allows output of different formats (json, graphviz) and replaces the
+ in-kernel vis functionality found in older batman-adv kernel modules (<2014).

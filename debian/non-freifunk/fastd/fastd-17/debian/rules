@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+#export DH_VERBOSE=1
+
+%:
+	dh $@ 
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DENABLE_OPENSSL=ON \
+		-DENABLE_SYSTEMD=ON \
+		-DENABLE_LIBSODIUM=OFF \
+		-DENABLE_LTO=OFF \
+		-DCMAKE_AR=/usr/bin/ar \
+		-DCMAKE_RANLIB=/usr/bin/ranlib \
+		-DCMAKE_NM=/usr/bin/nm
+
+override_dh_install:
+	mkdir -p $$(pwd)/debian/fastd/etc/fastd
+	mkdir -p $$(pwd)/debian/fastd/lib/systemd/system
+	cp doc/examples/fastd@.service $$(pwd)/debian/fastd/lib/systemd/system/
+
+override_dh_installinit:
+	dh_installinit --no-start -- defaults 16 80

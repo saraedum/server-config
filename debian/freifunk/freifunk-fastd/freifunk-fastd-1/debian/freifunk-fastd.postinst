@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+. /usr/share/debconf/confmodule
+db_version 2.0
+
+action="$1"
+oldversion="$2"
+
+umask 022
+
+if [ "$action" = configure ]; then
+    if [ ! -f "/etc/fastd/freifunk/secret.conf" ]; then
+        echo -n "Generating fastd private key; this may take some time ..."
+        echo "secret \"$(fastd --generate-key --machine-readable)\";" > /etc/fastd/freifunk/secret.conf
+        echo "#public $(fastd --config /etc/fastd/freifunk/secret.conf --show-key --machine-readable)" >> /etc/fastd/freifunk/secret.conf
+        echo
+    fi
+fi

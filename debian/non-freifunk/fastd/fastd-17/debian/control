@@ -1,0 +1,13 @@
+Source: fastd
+Section: net
+Priority: extra
+Maintainer: Matthias Schiffer <mschiffer@universe-factory.net>
+Build-Depends: debhelper (>= 9), cmake (>= 2.8.7), bison (>= 2.5), pkg-config, libcap-dev, libuecc-dev (>= 5), libnacl-dev, libssl-dev, libjson-c-dev
+Standards-Version: 3.9.2
+Homepage: https://projects.universe-factory.net/projects/fastd
+
+Package: fastd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fastd and Secure Tunneling Daemon
+ A VPN daemon that has many features of OpenVPN and Tinc and is optimized for small code size and small number of dependencies

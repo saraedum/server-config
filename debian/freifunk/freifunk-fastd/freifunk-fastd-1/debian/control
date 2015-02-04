@@ -1,0 +1,11 @@
+Source: freifunk-fastd
+Section: freifunk
+Priority: extra
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: freifunk-fastd
+Architecture: all
+Depends: ${misc:Depends}, fastd (>= 17)
+Description: fastd configuration for a VPN server

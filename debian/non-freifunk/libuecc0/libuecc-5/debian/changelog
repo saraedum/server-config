@@ -1,0 +1,35 @@
+libuecc (5-2) unstable; urgency=low
+
+  * Add symbol definitions, include static library into -dev package
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Fri, 30 Jan 2015 08:37:36 +0100
+
+libuecc (5-1) unstable; urgency=low
+
+  * New release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Thu, 29 Jan 2015 07:17:31 +0100
+
+libuecc (4-1) unstable; urgency=low
+
+  * New release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sun, 29 Dec 2013 13:08:54 +0100
+
+libuecc (3-1) unstable; urgency=low
+
+  * New release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Thu, 10 Jan 2013 18:07:21 +0100
+
+libuecc (2-1) unstable; urgency=low
+
+  * libuecc v2 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sun, 23 Dec 2012 23:20:18 +0100
+
+libuecc (0.1-2) unstable; urgency=low
+
+  * libuecc v0.1 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 06 Oct 2012 18:33:09 +0200

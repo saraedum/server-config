@@ -1,0 +1,11 @@
+Source: freifunk-www-status
+Section: freifunk
+Priority: extra
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: freifunk-www-status
+Architecture: all
+Depends: ${misc:Depends}, httpd, freifunk-batman
+Description: Freifunk server status page

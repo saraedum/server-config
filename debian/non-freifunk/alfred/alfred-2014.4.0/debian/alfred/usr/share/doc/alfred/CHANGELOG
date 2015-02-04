@@ -1,0 +1,69 @@
+alfred 2014.4.0:
+
+ * add support for multiple interfaces per master
+ * add support for changing interfaces on the fly
+ * changes to support multiple alfred interfaces:
+   - bind alfred to a specific interface
+   - allow configuring the unix socket path
+ * enhanced debugging
+
+ -- Wed, 31 Dec 2014 00:40:42 +0100
+
+alfred 2014.3.0:
+
+ * fix various possible memleak, access errors and strncpy issues
+ * handle fcntl return codes
+ * fix altitude verification check in gpsd
+
+ -- Mon, 21 Jul 2014 16:53:01 +0200
+
+alfred 2014.2.0:
+
+ * Handle EPERM errors on every sendto
+ * Check for changed interface properties, e.g. recreation or
+   changed MAC- and IPv6 addresses
+
+ -- Thu, 15 May 2014 19:41:44 +0200
+
+alfred 2014.1.0:
+
+ * don't leak socket fd in batadv-vis
+
+ -- Thu, 13 Mar 2014 12:10:26 +0100
+
+alfred 2014.0.0:
+
+ * add installation of the alfred-gpsd manpage
+ * add -lm to linker flags for libgps in alfred-gpsd
+
+ -- Sat, 04 Jan 2014 20:17:07 +0100
+
+alfred 2013.4.0:
+
+ * add new json output format for vis
+ * add gps location information service for alfred
+ * allow network interface to vanish and return without restart
+ * allow to switch between master and slave operation without restart
+ * renamed vis to batadv-vis to avoid collisions with other vis binaries
+ * add manpages
+ * various code cleanups
+ * bugs squashed:
+
+   * handle failing write() in unix sockets
+   * Fix crash when vis opened empty file
+
+ -- Sun, 13 Oct 2013 22:55:43 +0200
+
+alfred 2013.3.0:
+
+ * initial release of alfred after beta (synced release cycle with
+   batman-adv)
+ * allows to share arbitrary local information over a (mesh) network
+ * initial support for vis (previously in-kernel feature of batman-adv
+   to visualize the network) included
+ * easy but flexible communication interface to allow data applications
+   of all kinds
+ * two-tiered architecture (master and slaves)
+ * exchanges data via IPv6 unicast/multicast
+
+ -- Sun, 28 Jul 2013 18:56:52 +0200

@@ -1,0 +1,13 @@
+Source: freifunk-server
+Section: freifunk
+Priority: extra
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: freifunk-server
+Architecture: all
+Depends: ${misc:Depends} freifunk-fastd freifunk-batman freifunk-www-status freifunk-www-map freifunk-www-counter freifunk-alfred
+Suggests: freifunk-firewall
+Description: meta package for a freifunk VPN server
+ The sole purpose of this package is to pull in all dependencies whic are needed to run a freifunk VPN server.

@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 04 Feb 2015 16:10:19 +0000
+Source: freifunk-www-status
+Binary: freifunk-www-status
+Architecture: source all
+Version: 1
+Distribution: experimental
+Urgency: low
+Maintainer: Julian Rueth <julian.rueth@fsfe.org>
+Changed-By: Julian Rueth <julian.rueth@fsfe.org>
+Description: 
+ freifunk-www-status - Freifunk server status page
+Changes: 
+ freifunk-www-status (1) experimental; urgency=low
+ .
+   * Initial Release.
+Checksums-Sha1: 
+ deeabab8cfcfeeb428667bca02540ea4c12a774e 562 freifunk-www-status_1.dsc
+ b7372c700612446d4e90d6dc68356fb10a6477c4 41156 freifunk-www-status_1.tar.gz
+ cb9184be5ac6d3c67d4b7727dd2bb1484a669aa7 41288 freifunk-www-status_1_all.deb
+Checksums-Sha256: 
+ ec14b95450d0fab44f11d5332eb29c7b9de1a2fa3e8c2952f083622d4ed7253f 562 freifunk-www-status_1.dsc
+ 9856dca0cb7b070109c675126a3d7eef99c59bf9eed20307ae73395d07d1994f 41156 freifunk-www-status_1.tar.gz
+ d644960f21555099f53c2e25c5721df595acd155a155aad433cced030934044c 41288 freifunk-www-status_1_all.deb
+Files: 
+ dc7cf45401b94210d41995a49fa5c5ab 562 freifunk extra freifunk-www-status_1.dsc
+ 80247b1b1210d9ed9633bbaa48920c85 41156 freifunk extra freifunk-www-status_1.tar.gz
+ de9e127e5b458e24fbfce8933dafcdfb 41288 freifunk extra freifunk-www-status_1_all.deb

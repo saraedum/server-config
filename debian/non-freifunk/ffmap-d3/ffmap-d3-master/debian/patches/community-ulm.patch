@@ -1,0 +1,14 @@
+set community to ulm
+--- a/config.js
++++ b/config.js
+@@ -5,8 +5,8 @@
+   url:       "/",
+ 
+   // visible link in the navigation:
+-  community_site : "bielefeld.freifunk.net",
+-  community_name : "Freifunk Bielefeld",
++  community_site : "ulm.freifunk.net",
++  community_name : "Freifunk Ulm",
+ 
+   // initial gravity, friction, of the graph at pageload:
+   gravity:   0.05,

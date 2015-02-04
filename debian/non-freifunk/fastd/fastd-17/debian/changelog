@@ -1,0 +1,89 @@
+fastd (17-2) unstable; urgency=low
+
+  * Rebuild against versioned libuecc
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Fri, 30 Jan 2015 08:44:31 +0100
+
+fastd (17-1) unstable; urgency=low
+
+  * fastd v17 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Thu, 29 Jan 2015 07:30:09 +0100
+
+fastd (16-1) unstable; urgency=low
+
+  * fastd v16 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 15 Nov 2014 18:35:49 +0100
+
+fastd (15-1) unstable; urgency=low
+
+  * fastd v15 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Wed, 12 Nov 2014 02:33:44 +0100
+
+fastd (14-1) unstable; urgency=low
+
+  * fastd v14 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Mon, 30 Jun 2014 22:03:25 +0200
+
+fastd (12-1) unstable; urgency=low
+
+  * fastd v12 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Fri, 14 Mar 2014 14:47:08 +0100
+
+fastd (11-1) unstable; urgency=low
+
+  * fastd v11 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sun, 29 Dec 2013 14:16:51 +0100
+
+fastd (10-1) unstable; urgency=low
+
+  * fastd v10 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Fri, 11 Oct 2013 17:02:59 +0200
+
+fastd (9-2) unstable; urgency=low
+
+  * Initscript improvements
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 07 Sep 2013 20:45:18 +0200
+
+fastd (9-1) unstable; urgency=low
+
+  * fastd v9 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 07 Sep 2013 19:59:08 +0200
+
+fastd (8-2) unstable; urgency=low
+
+  * Add init script
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Tue, 12 Mar 2013 18:39:49 +0100
+
+fastd (8-1) unstable; urgency=low
+
+  * fastd v8 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sun, 10 Mar 2013 18:45:09 +0100
+
+fastd (7-1) unstable; urgency=low
+
+  * New release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Thu, 10 Jan 2013 18:37:51 +0100
+
+fastd (6-1) unstable; urgency=low
+
+  * fastd v6 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 10 Nov 2012 18:28:29 +0100
+
+fastd (0.5-1) unstable; urgency=low
+
+  * fastd v0.5 release
+
+ -- Matthias Schiffer <mschiffer@universe-factory.net>  Sat, 06 Oct 2012 18:16:22 +0200
