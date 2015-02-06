@@ -46,3 +46,31 @@ Create a New Package
 
 A good guide on creating a new package is
 [here](https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf).
+
+Create a Debian Repository
+--------------------------
+
+We can create an apt repository in /var/www/apt with aptly:
+
+    apt-get install aptly
+    aptly repo create -distribution=wheezy -component=main freifunk
+    aptly repo add freifunk .
+    aptly publish repo freifunk freifunk
+    mkdir -p /var/www/apt
+    cp -R ~/.aptly/public/freifunk /var/www/apt/
+
+The packages will be signed with your default GnuPG key. To use the repository
+in apt.sources you need to import the corresponding public key with apt-key:
+
+    gpg --armor --export my@mail.com >> ../gpg.keys
+    apt-key add ../gpg.keys
+
+To use the repository, add the following to /etc/apt/sources.list:
+
+    deb http://your-server/apt/freifunk wheezy main
+
+To add more packages to the repository:
+
+    aptly repo add freifunk .
+    aptly publish update wheezy freifunk
+
