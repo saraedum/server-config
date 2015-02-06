@@ -1,10 +1,10 @@
 Freifunk-Ulm Server
-===============
+===================
 
-Scripte und Konfigurationsdateien zum schnellen Einrichten eines Freifunk-Servers.
-Vorausgesetzt wird mindestens Debian Wheezy (mit wheezy-backports) oder neuer.
+Skripte und Konfigurationsdateien zum schnellen Einrichten eines
+Freifunk-Servers unter Debian.
 
-server_setup.sh richtet einen Server ein, der Teil des Ulmer Freifunk Netzes ist.
+`setup_server.sh` richtet einen Server ein, der Teil des Ulmer Freifunk Netzes ist.
 Es werden folgende wesentlichen Programme installiert und konfiguriert:
 
  * Routingprotokoll: [batman-adv](http://www.open-mesh.org/projects/batman-adv/wiki)
@@ -12,10 +12,10 @@ Es werden folgende wesentlichen Programme installiert und konfiguriert:
  * Webserver: lighttpd
  * Karte: [ffmap](https://github.com/ffnord/ffmap-d3)
 
-setup_gateway.sh richtet einen mit server_setup.sh eingerichteten Server so ein,
-das er als Gateway im Ulmer Freifunk-Netz dient. Das Script erwartet die Accountdaten
-von mullvad.net oder ipredator.se im gleichen Verzeichnis.
-Es werden folgende wesentlichen Programme installiert und konfiguriert:
+`setup_gateway.sh` richtet einen mit `setup_server.sh` eingerichteten Server so
+ein, das er als Gateway im Ulmer Freifunk-Netz dient. Das Skript erwartet die
+Accountdaten von mullvad.net oder ipredator.se im gleichen Verzeichnis. Es
+werden folgende wesentlichen Programme installiert und konfiguriert:
 
  * NAT64: [tayga](http://www.litech.org/tayga/)
  * DNS64: bind
@@ -23,10 +23,8 @@ Es werden folgende wesentlichen Programme installiert und konfiguriert:
  * Auslands-VPN: OpenVPN
 
 
-Zu Ausführen einfach als Benutzer 'root' die Scripte ausführen:
+Einfach als Benutzer 'root' die Skripte ausführen:
 
-<pre>
-git clone https://github.com/ffulm/server-config.git
-cd server-config
-./setup_server.sh
-</pre>
+    git clone https://github.com/ffulm/server-config.git
+    cd server-config
+    ./setup_server.sh
