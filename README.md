@@ -22,9 +22,16 @@ werden folgende wesentlichen Programme installiert und konfiguriert:
  * IPv6 Router Advertisment: radvd
  * Auslands-VPN: OpenVPN
 
-
-Einfach als Benutzer 'root' die Skripte ausführen:
+Einige der nötigen Pakete sind in einem speziellen Debian-Repository verfügbar
+(die Quellen dieser Pakete liegen unter `debian/`). Um die Pakete aus diesem Repository zu installieren, folgende Befehle ausführen:
 
     git clone https://github.com/ffulm/server-config.git
     cd server-config
-    ./setup_server.sh
+	apt-key add debian/gpg.keys
+	echo "deb http://vpn2.ulm.freifunk.net/apt/ wheezy main" >> /etc/apt/sources.list
+	apt-get update
+	apt-get install batman-adv-dkms batctl alfred fastd python3-jsonschema ffmap-d3 lighttpd iptables-persistent
+
+Folgendes Kommando richtet die Pakete ein:
+
+	./setup_server.sh	
