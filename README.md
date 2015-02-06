@@ -27,11 +27,11 @@ Einige der nötigen Pakete sind in einem speziellen Debian-Repository verfügbar
 
     git clone https://github.com/ffulm/server-config.git
     cd server-config
-	apt-key add debian/gpg.keys
-	echo "deb http://vpn2.ulm.freifunk.net/apt/ wheezy main" >> /etc/apt/sources.list
-	apt-get update
-	apt-get install batman-adv-dkms batctl alfred fastd python3-jsonschema ffmap-d3 lighttpd iptables-persistent
+    apt-key add gpg.keys
+    echo "deb http://vpn2.ulm.freifunk.net/apt/ wheezy main" >> /etc/apt/sources.list
+    apt-get update
+    apt-get install batman-adv-dkms batctl alfred fastd python3-jsonschema ffmap-d3 lighttpd iptables-persistent
 
 Folgendes Kommando richtet die Pakete ein:
 
-	./setup_server.sh	
+    ./setup_server.sh   
