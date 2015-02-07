@@ -35,3 +35,7 @@ Einige der nötigen Pakete sind in einem speziellen Debian-Repository verfügbar
 Folgendes Kommando richtet die Pakete ein:
 
     ./setup_server.sh   
+
+Will man auch ein Gateway betreiben, so ist der Kernel von Debian wheezy nicht
+ausreichend aktuell, da er kein NAT66 unterstützt. Am besten nimmt man dann den
+Kernel aus wheezy-backports.
