@@ -39,3 +39,5 @@ Folgendes Kommando richtet die Pakete ein:
 Will man auch ein Gateway betreiben, so ist der Kernel von Debian wheezy nicht
 ausreichend aktuell, da er kein NAT66 unterstützt. Am besten nimmt man dann den
 Kernel aus wheezy-backports.
+Leider ist die Version von iptables in wheezy nicht ausreichend. Im Moment
+betreibt man also ein Gateway am besten unter jessie.
