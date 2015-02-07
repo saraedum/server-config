@@ -70,7 +70,7 @@ echo "(I) This server will have the internal IP address: $addr"
 
 if [ ! -d /etc/iptables ]; then
 	echo "(I) Installing persistent iptables"
-	cp -rf etc/iptables /etc/
+	cp -rf etc/iptables/* /etc/iptables/
 	/etc/init.d/iptables-persistent restart
 fi
 
