@@ -147,22 +147,14 @@ if [ ! -f /etc/radvd.conf ]; then
 	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/radvd.conf
 fi
 
-if ! is_running "openvpn"; then
-	echo "(I) Start openvpn."
-	/etc/init.d/openvpn start
-fi
+echo "(I) Restart openvpn."
+/etc/init.d/openvpn restart
 
-if ! is_running "tayga"; then
-	echo "(I) Start tayga."
-	tayga
-fi
+echo "(I) Restart tayga."
+/etc/init.d/tayga restart
 
-if ! is_running "named"; then
-	echo "(I) Start bind."
-	/etc/init.d/bind9 start
-fi
+echo "(I) Restart bind."
+/etc/init.d/bind9 restart
 
-if ! is_running "radvd"; then
-  echo "(I) Start radvd."
-  /etc/init.d/radvd start
-fi
+echo "(I) Restart radvd."
+/etc/init.d/radvd restart

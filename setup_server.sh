@@ -166,12 +166,8 @@ echo "0" >  /sys/class/net/bat0/mesh/multicast_mode
 
 ip -6 addr add $addr/64 dev bat0
 
-if ! is_running "alfred"; then
-  echo "(I) Start alfred."
-  /etc/init.d/alfred start
-fi
+echo "(I) Restart alfred."
+/etc/init.d/alfred restart
 
-if ! is_running "lighttpd"; then
-  echo "(I) Start lighttpd."
-  /etc/init.d/lighttpd start
-fi
+echo "(I) Restart lighttpd."
+/etc/init.d/lighttpd restart
