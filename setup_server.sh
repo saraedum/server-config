@@ -13,7 +13,7 @@ wan_iface="eth0"
 community_id="ulm"
 
 #The internal IPv6 prefix
-ff_prefix="fdef:17a0:ffb1:301::"
+ff_prefix="fdef:17a0:ffb2:301::"
 
 #Set to 1 for this script to run. :-)
 run=0
