@@ -8,7 +8,8 @@ unstable/experimental, some are not available in Debian at all.
 Required Packages
 -----------------
 
-Install at least `build-essential dpkg-dev debian-keyring:unstable xzip dh-make`.
+Install at least `build-essential dpkg-dev xzip dh-make`.
+From unstable install `debian-keyring`.
 
 Backport a Package
 -------------------
