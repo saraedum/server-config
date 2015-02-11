@@ -20,4 +20,4 @@ alfred -r 64 > /tmp/maps.txt
 ./counter_update.py '/var/www/map/nodes.json' '/var/www/counter/counter_image.svg'
 
 #update FF-Internal status page
-./status_page_create.sh '/var/www/status/index.html'
+./status_page_create.sh '/var/www/index.html'
