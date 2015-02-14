@@ -7,7 +7,8 @@
 wan_iface="eth0"
 
 #The internal IPv6 prefix
-ff_prefix="fdef:17a0:ffb2:301::"
+ff_prefix_48="fdef:17a0:ffb2"
+ff_prefix_64="$ff_prefix_48:301"
 
 #Set to 1 for this script to run. :-)
 run=0
@@ -49,7 +50,7 @@ ula_addr() {
 	mac=`echo $mac | sed 's/..../&:/g'` # insert ':'
 
 	# assemble IPv6 address
-	echo "${prefix%%::*}:${mac%?}"
+	echo "$prefix:${mac%?}"
 }
 
 get_mac() {
@@ -63,7 +64,7 @@ get_mac() {
 }
 
 mac="$(get_mac $wan_iface)"
-addr="$(ula_addr $ff_prefix $mac)"
+addr="$(ula_addr $ff_prefix_64 $mac)"
 
 
 setup_mullvad() {
@@ -123,6 +124,7 @@ if ! is_installed "tayga"; then
 
 	echo "(I) Configure tayga"
 	cp -r etc/tayga.conf /etc/
+	sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/tayga.conf
 fi
 
 #DNS64
@@ -133,6 +135,7 @@ if ! is_installed "named"; then
 	echo "(I) Configure bind"
 	cp -r etc/bind /etc/
 	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/bind/named.conf.options
+	sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/bind/named.conf.options
 fi
 
 #IPv6 Router Advertisments
@@ -145,7 +148,7 @@ if [ ! -f /etc/radvd.conf ]; then
 	echo "(I) Configure radvd"
 	cp etc/radvd.conf /etc/
 	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/radvd.conf
-	sed -i "s/fdef:17a0:ffb1:300::/$ff_prefix/g" /etc/radvd.conf
+	sed -i "s/fdef:17a0:ffb1:300::/$ff_prefix_64::/g" /etc/radvd.conf
 fi
 
 echo "(I) Restart openvpn."

@@ -13,7 +13,8 @@ wan_iface="eth0"
 community_id="ulm"
 
 #The internal IPv6 prefix
-ff_prefix="fdef:17a0:ffb2:301::"
+ff_prefix_48="fdef:17a0:ffb2"
+ff_prefix_64="$ff_prefix_48:301"
 
 #Set to 1 for this script to run. :-)
 run=0
@@ -50,7 +51,7 @@ ula_addr() {
 	mac=`echo $mac | sed 's/..../&:/g'` # insert ':'
 
 	# assemble IPv6 address
-	echo "${prefix%%::*}:${mac%?}"
+	echo "$prefix:${mac%?}"
 }
 
 get_mac() {
@@ -64,7 +65,7 @@ get_mac() {
 }
 
 mac="$(get_mac $wan_iface)"
-addr="$(ula_addr $ff_prefix $mac)"
+addr="$(ula_addr $ff_prefix_64 $mac)"
 
 echo "(I) This server will have the internal IP address: $addr"
 
