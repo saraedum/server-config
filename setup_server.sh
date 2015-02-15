@@ -69,70 +69,61 @@ addr="$(ula_addr $ff_prefix_64 $mac)"
 
 echo "(I) This server will have the internal IP address: $addr"
 
-if [ ! -d /etc/iptables ]; then
-	echo "(I) Installing persistent iptables"
-	cp -rf etc/iptables/* /etc/iptables/
-	/etc/init.d/iptables-persistent restart
-fi
+echo "(I) Installing persistent iptables"
+rm -rf /etc/iptables
+mkdir -p /etc/iptables
+cp -rf etc/iptables/* /etc/iptables/
+/etc/init.d/iptables-persistent restart
 
-if [ ! -f /root/scripts/update.sh ]; then
-       echo "(I) Create /root/scripts/"
-       cp -rf scripts /root/
+echo "(I) Create /root/scripts/"
+rm -rf /root/scripts
+cp -r scripts /root/
+sed -i "s/community=\"\"/community=\"$community_id\"/g" /root/scripts/print_map.sh
 
-       if [ -n "$community_id" ]; then
-               sed -i "s/community=\"\"/community=\"$community_id\"/g" /root/scripts/print_map.sh
-       fi
-fi
-
-if [ ! -f /etc/lighttpd/lighttpd.conf ]; then
-	echo "(I) Create /etc/lighttpd/lighttpd.conf"
-	cp etc/lighttpd/lighttpd.conf /etc/lighttpd/
-	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/lighttpd/lighttpd.conf
-fi
+echo "(I) Create /etc/lighttpd/lighttpd.conf"
+cp etc/lighttpd/lighttpd.conf /etc/lighttpd/
+sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/lighttpd/lighttpd.conf
+echo "(I) Restart lighttpd."
+/etc/init.d/lighttpd restart
 
 if ! id www-data >/dev/null 2>&1; then
 	echo "(I) Create user/group www-data for lighttpd."
 	useradd --system --no-create-home --user-group --shell /bin/false www-data
 fi
 
-if [ ! -d /var/www/status ]; then
-	echo "(I) Create /var/www/status"
-	mkdir -p /var/www/status
-	cp -r var/www/status /var/www/
-	chown -R www-data:www-data var/www
-fi
+echo "(I) Create /var/www/status"
+rm -rf /var/www/status
+mkdir -p /var/www/status
+cp -r var/www/status /var/www/
+chown -R www-data:www-data var/www
 
-if [ ! -d /var/www/map ]; then
-	echo "(I) Create /var/www/map"
-	mkdir -p /var/www/map
-	cp -r /usr/share/ffmap-d3/* /var/www/map/
-	chown -R www-data:www-data /var/www
-fi
+echo "(I) Create /var/www/map"
+rm -rf /var/www/map
+mkdir -p /var/www/map
+cp -r /usr/share/ffmap-d3/* /var/www/map/
+chown -R www-data:www-data /var/www
 
-if [ ! -d /var/www/counter ]; then
-	echo "(I) Create /var/www/counter"
-	mkdir -p /var/www/counter
-	cp -r var/www/counter /var/www/
-	chown -R www-data:www-data var/www
-fi
+echo "(I) Create /var/www/counter"
+rm -rf /var/www/counter
+mkdir -p /var/www/counter
+cp -r var/www/counter /var/www/
+chown -R www-data:www-data var/www
 
 if [ -z "$(cat /etc/crontab | grep '/root/scripts/update.sh')" ]; then
 	echo "(I) Add entry to /etc/crontab"
 	echo '*/5 * * * * root /root/scripts/update.sh' >> /etc/crontab
 fi
 
-if [ ! -f /etc/fastd/fastd.conf ]; then
-	echo "(I) Configure fastd"
-	cp -r etc/fastd /etc/
+echo "(I) Configure fastd"
+cp -rf etc/fastd /etc/
 
-	if [ -z "$fastd_secret" ]; then
-		echo "(I) Create Fastd private key pair. This may take a while..."
-		fastd_secret=$(fastd --generate-key --machine-readable)
-	fi
-	echo "secret \"$fastd_secret\";" >> /etc/fastd/fastd.conf
-	fastd_key=$(echo "secret \"$fastd_secret\";" | fastd --config - --show-key --machine-readable)
-	echo "#key \"$fastd_key\";" >> /etc/fastd/fastd.conf
+if [ -z "$fastd_secret" ]; then
+	echo "(I) Create Fastd private key pair. This may take a while..."
+	fastd_secret=$(fastd --generate-key --machine-readable)
 fi
+echo "secret \"$fastd_secret\";" >> /etc/fastd/fastd.conf
+fastd_key=$(echo "secret \"$fastd_secret\";" | fastd --config - --show-key --machine-readable)
+echo "#key \"$fastd_key\";" >> /etc/fastd/fastd.conf
 
 if ! id nobody >/dev/null 2>&1; then
 	echo "(I) Create user nobody for fastd."
@@ -142,11 +133,10 @@ fi
 echo "(I) Start batman-adv."
 modprobe batman_adv
 
-if ! is_running "fastd"; then
-  echo "(I) Start fastd."
-  fastd --config /etc/fastd/fastd.conf --daemon
-  sleep 1
-fi
+echo "(I) Restart fastd."
+killall fastd || true
+fastd --config /etc/fastd/fastd.conf --daemon
+sleep 1
 
 echo "(I) Add fastd interface to batman-adv."
 ip link set fastd_mesh up
@@ -167,6 +157,3 @@ ip -6 addr add $addr/64 dev bat0
 
 echo "(I) Restart alfred."
 /etc/init.d/alfred restart
-
-echo "(I) Restart lighttpd."
-/etc/init.d/lighttpd restart

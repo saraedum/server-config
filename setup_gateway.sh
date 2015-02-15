@@ -94,62 +94,52 @@ setup_mullvad() {
 	echo "route-up /etc/openvpn/update-route" >> /etc/openvpn/mullvad_linux.conf
 }
 
-if ! is_installed "openvpn"; then
-	echo "(I) Install OpenVPN."
-	apt-get install --assume-yes openvpn resolvconf zip
+echo "(I) Install OpenVPN."
+apt-get install --assume-yes openvpn resolvconf zip
 
-	echo "(I) Configure OpenVPN"
-	#mullvad "tun-ipv6" to their OpenVPN configuration file.
-	case "mullvad" in
-		"mullvad")
-			setup_mullvad "mullvadconfig.zip"
-		;;
-		#apt-get install openvpn resolvconf
-		*)
-			echo "Unknown argument"
-			exit 1
-		;;
-	esac
+echo "(I) Configure OpenVPN"
+#mullvad "tun-ipv6" to their OpenVPN configuration file.
+case "mullvad" in
+	"mullvad")
+		setup_mullvad "mullvadconfig.zip"
+	;;
+	#apt-get install openvpn resolvconf
+	*)
+		echo "Unknown argument"
+		exit 1
+	;;
+esac
 
-	cp etc/openvpn/update-route /etc/openvpn/
-fi
+cp etc/openvpn/update-route /etc/openvpn/
 
 #NAT64
-if ! is_installed "tayga"; then
-	echo "(I) Install tayga."
-	apt-get install --assume-yes tayga
+echo "(I) Install tayga."
+apt-get install --assume-yes tayga
 
-	#enable tayga
-	sed -i 's/RUN="no"/RUN="yes"/g' /etc/default/tayga
+#enable tayga
+sed -i 's/RUN="no"/RUN="yes"/g' /etc/default/tayga
 
-	echo "(I) Configure tayga"
-	cp -r etc/tayga.conf /etc/
-	sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/tayga.conf
-fi
+echo "(I) Configure tayga"
+cp etc/tayga.conf /etc/
+sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/tayga.conf
 
 #DNS64
-if ! is_installed "named"; then
-	echo "(I) Install bind."
-	apt-get install --assume-yes bind9
+echo "(I) Install bind."
+apt-get install --assume-yes bind9
 
-	echo "(I) Configure bind"
-	cp -r etc/bind /etc/
-	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/bind/named.conf.options
-	sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/bind/named.conf.options
-fi
+echo "(I) Configure bind"
+cp -rf etc/bind /etc/
+sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/bind/named.conf.options
+sed -i "s/fdef:17a0:ffb1:1337::/$ff_prefix_48:1337::/g" /etc/bind/named.conf.options
 
 #IPv6 Router Advertisments
-if ! is_installed "radvd"; then
-	echo "(I) Install radvd."
-	apt-get install --assume-yes radvd
-fi
+echo "(I) Install radvd."
+apt-get install --assume-yes radvd
 
-if [ ! -f /etc/radvd.conf ]; then
-	echo "(I) Configure radvd"
-	cp etc/radvd.conf /etc/
-	sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/radvd.conf
-	sed -i "s/fdef:17a0:ffb1:300::/$ff_prefix_64::/g" /etc/radvd.conf
-fi
+echo "(I) Configure radvd"
+cp etc/radvd.conf /etc/
+sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/radvd.conf
+sed -i "s/fdef:17a0:ffb1:300::/$ff_prefix_64::/g" /etc/radvd.conf
 
 echo "(I) Restart openvpn."
 /etc/init.d/openvpn restart
