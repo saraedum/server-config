@@ -7,7 +7,7 @@ name="$(hostname)"
 firmware="server"
 community=""
 vpn="true" 
-gateway="false"
+gateway=$(pgrep radvd >/dev/null && echo "true" || echo "false")
 
 echo -n "{"
 
