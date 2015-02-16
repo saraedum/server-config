@@ -129,6 +129,8 @@ echo "(I) Set MAC address for bat0."
 ip link set bat0 down
 ip link set bat0 address "$mac"
 ip link set bat0 up
+# we do not accept a default gateway through bat0
+sysctl net.ipv6.conf.bat0.accept_ra=0
 
 echo "(I) Configure batman-adv."
 echo "5000" >  /sys/class/net/bat0/mesh/orig_interval
