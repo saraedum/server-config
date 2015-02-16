@@ -426,7 +426,7 @@ def render_ffmap(nodes):
         try:
             reverse = links[(link.dmac, link.smac)]
         except KeyError:
-            sys.stderr.write("Link {0} -> {1} has only been reported by one of its ends.\n".format(link.smac,link.dmac))
+            # this link has only been reported by one of its ends
             continue
 
         link.reverse = reverse
