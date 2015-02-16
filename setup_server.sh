@@ -72,17 +72,6 @@ rm -rf /root/scripts
 cp -r scripts /root/
 sed -i "s/community=\"\"/community=\"$community_id\"/g" /root/scripts/print_map.sh
 
-echo "(I) Create /etc/lighttpd/lighttpd.conf"
-cp etc/lighttpd/lighttpd.conf /etc/lighttpd/
-sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/lighttpd/lighttpd.conf
-echo "(I) Restart lighttpd."
-/etc/init.d/lighttpd restart
-
-if ! id www-data >/dev/null 2>&1; then
-	echo "(I) Create user/group www-data for lighttpd."
-	useradd --system --no-create-home --user-group --shell /bin/false www-data
-fi
-
 echo "(I) Create /var/www/status"
 rm -rf /var/www/status
 mkdir -p /var/www/status
