@@ -112,11 +112,13 @@ if ! id nobody >/dev/null 2>&1; then
 	useradd --system --no-create-home --shell /bin/false nobody
 fi
 
+pkill fastd || true
+rmmod batman_adv 2>/dev/null || true
+
 echo "(I) Start batman-adv."
 modprobe batman_adv
 
 echo "(I) Restart fastd."
-pkill fastd || true
 fastd --config /etc/fastd/fastd.conf --daemon
 sleep 1
 
