@@ -16,9 +16,6 @@ community_id="ulm"
 ff_prefix_48="fdef:17a0:ffb2"
 ff_prefix_64="$ff_prefix_48:301"
 
-#Set to 1 for this script to run. :-)
-run=0
-
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 
 #####################################
@@ -26,11 +23,6 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 #abort script on first error
 set -e
 set -u
-
-if [ $run -eq 0 ]; then
-	echo "Check the variables in this script and then set run to 1!"
-	exit 1
-fi
 
 is_running() {
   pidof "$1" > /dev/null || return $?
