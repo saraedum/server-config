@@ -3,9 +3,6 @@
 #This script sets up a Freifunk server consisting
 #of batman-adv, fastd and a web server for the status site.
 
-#Secret key for fastd (optional).
-fastd_secret=""
-
 #The servers Internet interface.
 wan_iface="eth0"
 
@@ -98,13 +95,13 @@ fi
 echo "(I) Configure fastd"
 cp -rf etc/fastd /etc/
 
-if [ -z "$fastd_secret" ]; then
+if [ ! -e "/etc/fastd/fastd.secret" ]; then
 	echo "(I) Create Fastd private key pair. This may take a while..."
 	fastd_secret=$(fastd --generate-key --machine-readable)
+	echo "secret \"$fastd_secret\";" > /etc/fastd/fastd.secret
+	fastd_key=$(echo "secret \"$fastd_secret\";" | fastd --config - --show-key --machine-readable)
+	echo "#key \"$fastd_key\";" >> /etc/fastd/fastd.secret
 fi
-echo "secret \"$fastd_secret\";" >> /etc/fastd/fastd.conf
-fastd_key=$(echo "secret \"$fastd_secret\";" | fastd --config - --show-key --machine-readable)
-echo "#key \"$fastd_key\";" >> /etc/fastd/fastd.conf
 
 if ! id nobody >/dev/null 2>&1; then
 	echo "(I) Create user nobody for fastd."
