@@ -116,7 +116,7 @@ echo "(I) Start batman-adv."
 modprobe batman_adv
 
 echo "(I) Restart fastd."
-killall fastd || true
+pkill fastd || true
 fastd --config /etc/fastd/fastd.conf --daemon
 sleep 1
 
