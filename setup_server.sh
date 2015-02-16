@@ -77,7 +77,7 @@ echo "(I) Create /var/www/status"
 rm -rf /var/www/status
 mkdir -p /var/www/status
 cp -r var/www/status /var/www/
-chown -R www-data:www-data var/www
+chown -R www-data:www-data /var/www
 
 echo "(I) Create /var/www/map"
 rm -rf /var/www/map
@@ -89,7 +89,7 @@ echo "(I) Create /var/www/counter"
 rm -rf /var/www/counter
 mkdir -p /var/www/counter
 cp -r var/www/counter /var/www/
-chown -R www-data:www-data var/www
+chown -R www-data:www-data /var/www
 
 if [ -z "$(cat /etc/crontab | grep '/root/scripts/update.sh')" ]; then
 	echo "(I) Add entry to /etc/crontab"
