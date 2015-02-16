@@ -15,7 +15,6 @@ echo -n "{"
 [ -n "$name" ] && echo -n "\"name\" : \"$name\", "
 [ -n "$firmware" ] && echo -n "\"firmware\" : \"$firmware\", "
 [ -n "$community" ] && echo -n "\"community\" : \"$community\", "
-[ -n "$vpn" ] && echo -n "\"vpn\" : $vpn, "
 [ -n "$gateway" ] && echo -n "\"gateway\" : $gateway, "
 [ -n "$vpn" ] && echo -n "\"vpn\" : $vpn, "
 
