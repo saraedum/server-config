@@ -143,3 +143,6 @@ echo "(I) Restart bind."
 
 echo "(I) Restart radvd."
 /etc/init.d/radvd restart
+
+# if everything worked, we also mark ourself as a gateway on the ffmap
+sed -i 's/gateway="false"/gateway="true"/g' /root/scripts/print_map.sh
