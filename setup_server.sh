@@ -62,7 +62,11 @@ echo "(I) Installing persistent iptables"
 rm -rf /etc/iptables
 mkdir -p /etc/iptables
 cp -rf etc/iptables/* /etc/iptables/
-/etc/init.d/iptables-persistent restart
+if [ -x /etc/init.d/netfilter-persistent ]; then
+	/etc/init.d/netfilter-persistent restart
+else
+	/etc/init.d/iptables-persistent restart
+fi
 
 echo "(I) Create /root/scripts/"
 rm -rf /root/scripts
