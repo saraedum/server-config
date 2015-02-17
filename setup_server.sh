@@ -142,5 +142,8 @@ echo "0" >  /sys/class/net/bat0/mesh/multicast_mode
 
 ip -6 addr add $addr/64 dev bat0
 
+echo "(I) Configure alfred."
+sed -i "s/MASTER=0/MASTER=1/g" /etc/default/alfred
+
 echo "(I) Restart alfred."
 /etc/init.d/alfred restart
