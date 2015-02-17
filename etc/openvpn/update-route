@@ -49,9 +49,3 @@ iptables -A FORWARD -i "$vpn_interface" -o nat64 -m state --state ESTABLISHED,RE
 
 # NAT66 all freifunk traffic
 ip6tables --table nat -A POSTROUTING -o "$vpn_interface" -j MASQUERADE
-
-# Enable routing
-echo 1 > /proc/sys/net/ipv6/conf/default/forwarding
-echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-echo 1 > /proc/sys/net/ipv4/conf/default/forwarding
-echo 1 > /proc/sys/net/ipv4/conf/all/forwarding

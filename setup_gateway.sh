@@ -132,6 +132,12 @@ cp etc/radvd.conf /etc/
 sed -i "s/fdef:17a0:ffb1:300::1/$addr/g" /etc/radvd.conf
 sed -i "s/fdef:17a0:ffb1:300::/$ff_prefix_64::/g" /etc/radvd.conf
 
+# Enable routing
+echo 1 > /proc/sys/net/ipv6/conf/default/forwarding
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+echo 1 > /proc/sys/net/ipv4/conf/default/forwarding
+echo 1 > /proc/sys/net/ipv4/conf/all/forwarding
+
 echo "(I) Restart openvpn."
 /etc/init.d/openvpn restart
 
