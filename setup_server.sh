@@ -98,6 +98,7 @@ fi
 
 echo "(I) Configure fastd"
 cp -rf etc/fastd /etc/
+sed -i "s/eth0/$wan_iface/g" /etc/fastd/fastd.conf
 
 if [ ! -e "/etc/fastd/fastd.secret" ]; then
 	echo "(I) Create Fastd private key pair. This may take a while..."
