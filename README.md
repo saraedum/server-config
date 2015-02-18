@@ -36,6 +36,11 @@ Folgendes Kommando richtet die Pakete ein:
 
     ./setup_server.sh   
 
+Es bietet sich an eine eigene Subdomain `vpnX.ulm.freifunk.net` unter
+http://freifunk.net/kontakt/issuetracker/ zu beantragen. Ist dies geschehen
+sollte diese zusammen mit dem public key von fastd in der Firmware und im
+Verzeichnis `etc/fastd/backbone/` hinterlegt werden.
+
 Will man auch ein Gateway betreiben, so ist der Kernel von Debian wheezy nicht
 ausreichend aktuell, da er kein NAT66 unterstützt. Am besten nimmt man dann den
 Kernel aus wheezy-backports.
