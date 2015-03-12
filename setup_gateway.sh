@@ -7,8 +7,8 @@
 wan_iface="eth0"
 
 #The internal IPv6 prefix
-ff_prefix_48="fdef:17a0:ffb2"
-ff_prefix_64="$ff_prefix_48:301"
+ff_prefix_48="fdef:17a0:ffb1"
+ff_prefix_64="$ff_prefix_48:300"
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 
