@@ -28,7 +28,7 @@ if sys.version_info[0] < 3:
 from pprint import pprint, pformat
 
 # list of firmware version that are not legacy.
-RECENT_FIRMWARES = ["ffbi-0.4.1", "server", "ffbi-0.4.mini"]
+RECENT_FIRMWARES = ["ffbi-0.4.3", "server", "ffbi-0.4.mini"]
 
 class AlfredParser:
     r'''
@@ -50,7 +50,7 @@ class AlfredParser:
     <http://json-schema.org/>`_.
     '''
     MAC_RE = "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
-    GEO_RE = "^\d{1,3}\.\d+ \d{1,3}\.\d+$"
+    GEO_RE = "^\d{1,3}\.\d{1,8} {1,3}\d{1,3}\.\d{1,8}$"
     NAME_RE = "^[\-\^'\w\.\:\[\]\(\)\/ ]*$"
     MAC_SCHEMA = { "type": "string", "pattern": MAC_RE }
     ALFRED_NODE_SCHEMA = {
